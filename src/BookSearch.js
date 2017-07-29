@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import * as BooksAPI from './BooksAPI'
 
 import BookCategory from './BookCategory.js'
 
@@ -33,7 +32,6 @@ class BookSearch extends Component {
           </div>
         </div>
         <div className="search-books-results">
-        <div>Query: {this.props.query}</div>          
           {this.props.results.length > 0 &&
             <BookCategory
               title='Results'

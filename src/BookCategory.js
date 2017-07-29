@@ -11,6 +11,13 @@ class BookCategory extends Component {
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books
+              .filter((book, index, array) => {
+                if(array.findIndex((ar) => ar.id === book.id) !== index){
+                  return false
+                } else {
+                  return true
+                }
+              })
               .map((book) => (
                 <li key={book.id}>
                   <Book
