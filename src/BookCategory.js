@@ -21,9 +21,8 @@ class BookCategory extends Component {
               .map((book) => (
                 <li key={book.id}>
                   <Book
-                    title={book.title}
-                    authors={book.authors}
-                    image={book.imageLinks ? 'url("' + book.imageLinks.thumbnail + '")' : ''}
+                    book={book}
+                    onChangeShelf={this.props.onChangeShelf}                    
                   />
                 </li>
               ))}

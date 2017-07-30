@@ -29,6 +29,20 @@ class BooksApp extends Component {
     }
   }
 
+  changeBookShelf = (book, shelf) => {
+    console.log(book.id + ' - ' + shelf)
+    this.setState((state) => ({
+      bookList: state.bookList
+        .map((b) => {
+          if(b.id === book.id)
+            b.shelf = shelf
+          return b
+        })
+    }))
+    
+    BooksAPI.update(book, shelf).then()
+  }
+
   render() {
     return (
       <div className="app">
@@ -37,11 +51,13 @@ class BooksApp extends Component {
             query={this.state.query}
             results={this.state.results}
             runQuery={this.runQuery}
+            onChangeShelf={this.changeBookShelf}            
           />
         )}/>
         <Route exact path='/' render={() => (
           <MyBooks
             myBooks={this.state.bookList}
+            onChangeShelf={this.changeBookShelf}
           />
         )}/>
       </div>

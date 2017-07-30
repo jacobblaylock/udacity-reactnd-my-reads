@@ -36,6 +36,7 @@ class BookSearch extends Component {
             <BookCategory
               title='Results'
               books={this.props.results}
+              onChangeShelf={this.props.onChangeShelf}              
             />          
           }
         </div>
