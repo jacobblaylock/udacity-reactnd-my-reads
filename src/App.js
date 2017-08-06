@@ -24,23 +24,29 @@ class BooksApp extends Component {
     this.setState({ query })
     if(query) {
       BooksAPI.search(query).then((results) => {
-        this.setState({ results })
+        this.setState({ 
+          results: results
+            .map((r) => {
+              const book = this.state.bookList.find((b) => b.id === r.id)
+              book && (r.shelf = book.shelf)
+              return r
+            })
+        })
       })    
     }
   }
 
+  updateBookShelf(book){
+    BooksAPI.update(book, book.shelf).then()
+  }
+
   changeBookShelf = (book, shelf) => {
-    console.log(book.id + ' - ' + shelf)
+    book.shelf = shelf
     this.setState((state) => ({
-      bookList: state.bookList
-        .map((b) => {
-          if(b.id === book.id)
-            b.shelf = shelf
-          return b
-        })
+      bookList: state.bookList.filter((b) => b.id !== book.id).concat(book)
     }))
-    
-    BooksAPI.update(book, shelf).then()
+
+    this.updateBookShelf(book)
   }
 
   render() {
