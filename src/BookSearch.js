@@ -5,6 +5,10 @@ import BookCategory from './BookCategory.js'
 
 class BookSearch extends Component {
 
+  componentDidMount() {
+    this.props.resetQuery()
+  }  
+
   updateQuery = (query) => {
     this.props.runQuery(query)
   }

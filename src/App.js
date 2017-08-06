@@ -20,6 +20,10 @@ class BooksApp extends Component {
     })
   }  
 
+  resetQuery = () => {
+    this.setState({ query: '', results: [] })
+  }
+
   runQuery = (query) => {
     this.setState({ query })
     if(query) {
@@ -54,6 +58,7 @@ class BooksApp extends Component {
       <div className="app">
         <Route path='/search' render={() =>(
           <BookSearch
+            resetQuery={this.resetQuery}          
             query={this.state.query}
             results={this.state.results}
             runQuery={this.runQuery}
