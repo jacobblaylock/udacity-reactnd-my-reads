@@ -16,3 +16,5 @@ Navigate to the root of the project directory and run the following commands:
     npm install
     npm start
 ```
+
+This should automatically launch the app in your browser, but if it does not, navigate to localhost:3000 in your favorite browser.
