@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class BookControl extends Component {
+
+  static propTypes = {
+    shelf: PropTypes.string.isRequired,
+    onSelectShelf: PropTypes.func.isRequired
+  }
 
   state = {
     optionSelected: this.props.shelf

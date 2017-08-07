@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import BookCategory from './BookCategory.js'
 
 class BookSearch extends Component {
+
+  static propTypes = {
+    resetQuery: PropTypes.func.isRequired,
+    query: PropTypes.string.isRequired,
+    results: PropTypes.array.isRequired,
+    runQuery: PropTypes.func.isRequired,
+    onChangeShelf: PropTypes.func.isRequired
+  }
 
   componentDidMount() {
     this.props.resetQuery()

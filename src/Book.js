@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import BookControl from './BookControl.js'
 
 
 class Book extends Component {
+
+  static propTypes = {
+    book: PropTypes.object.isRequired,
+    onChangeShelf: PropTypes.func.isRequired
+  }
 
   runChangeShelf = (shelf) => {
     this.props.onChangeShelf(this.props.book, shelf)
