@@ -11,6 +11,11 @@ class Book extends Component {
     onChangeShelf: PropTypes.func.isRequired
   }
 
+  /**
+   * @description Execute the function to change the shelf of the selected
+   *              book
+   * @param {string} shelf - The new shelf value of the book
+   */
   runChangeShelf = (shelf) => {
     this.props.onChangeShelf(this.props.book, shelf)
   }

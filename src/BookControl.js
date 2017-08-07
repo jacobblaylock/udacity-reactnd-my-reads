@@ -12,6 +12,10 @@ class BookControl extends Component {
     optionSelected: this.props.shelf
   }
 
+  /**
+   * @description Set the current shelf value for a book upon selection
+   * @param {string} event - The selected item
+   */
   onSelect = (event) => {
     this.setState({ optionSelected: event.target.value})
     this.props.onSelectShelf(event.target.value)

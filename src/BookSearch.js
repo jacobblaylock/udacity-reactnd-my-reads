@@ -18,6 +18,11 @@ class BookSearch extends Component {
     this.props.resetQuery()
   }  
 
+  /**
+   * @description Execute the function to pull in search results for the 
+   *              given query
+   * @param {string} query - Search term to be used in the query
+   */
   updateQuery = (query) => {
     this.props.runQuery(query)
   }
